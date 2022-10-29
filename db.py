@@ -18,5 +18,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "She_didn't_love_U"
 api = Api(app)
 
-
 db = SQLAlchemy(app)
+
+db.init_app(app)
+
+@app.before_first_request
+def create_table():
+    db.create_all()
