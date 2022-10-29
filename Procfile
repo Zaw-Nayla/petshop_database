@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.wsgi
+web: gunicorn eddies-pet-shop.wsgi
