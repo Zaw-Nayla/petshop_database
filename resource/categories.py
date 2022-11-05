@@ -1,6 +1,6 @@
 from models.categories import CategoryModel
 from flask_restful import Resource,reqparse
-from flask_jwt import jwt_required
+# from flask_jwt import jwt_required
 
 class Category(Resource):
     parser = reqparse.RequestParser()
@@ -18,7 +18,7 @@ class Category(Resource):
     )
     
 
-    @jwt_required()
+    # @jwt_required()
     def post(self):
         data = Category.parser.parse_args()
         user = CategoryModel.find_catego_by_id(data['id'])
@@ -39,7 +39,7 @@ class Category(Resource):
         
         return {"Massage" : "PetCategory created successfully"}, 200
     
-    @jwt_required()
+    # @jwt_required()
     def delete(self):
         data = Category.parser.parse_args()
         user = CategoryModel.find_catego_by_id(data["id"])
@@ -49,7 +49,7 @@ class Category(Resource):
         
         return {"Massage" : "An error occurs while deleting user"}, 500
     
-    @jwt_required()
+    # @jwt_required()
     def put(self):
         data = Category.parser.parse_args()
         catego = CategoryModel.find_catego_by_id(data["id"])

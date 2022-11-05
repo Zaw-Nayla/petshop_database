@@ -3,7 +3,7 @@ from flask_restful import Resource,reqparse
 
 from models.user import UserModel
 from models.categories import CategoryModel
-from flask_jwt import jwt_required
+# from flask_jwt import jwt_required
 
 class Pets(Resource):
     parser = reqparse.RequestParser()
@@ -50,7 +50,7 @@ class Pets(Resource):
         help = "Category ID cannot be blank"
     )
     
-    @jwt_required()
+    # @jwt_required()
     def post(self):
         data = Pets.parser.parse_args()
         pet = PetModel.find_pet_by_id(data['id'])
@@ -80,7 +80,7 @@ class Pets(Resource):
         
         return pet.json(), 201
     
-    @jwt_required()
+    # @jwt_required()
     def delete(self):
         data = Pets.parser.parse_args()
         user = PetModel.find_pet_by_id(data["id"])
@@ -90,7 +90,7 @@ class Pets(Resource):
         
         return {"Massage" : "An error occurs while deleting pets"}, 500
     
-    @jwt_required()
+    # @jwt_required()
     def put(self):
         data = Pets.parser.parse_args()
         pet = PetModel.find_pet_by_id(data["id"])

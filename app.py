@@ -2,10 +2,10 @@ from db import *
 from flask_jwt import JWT
 from resource.categories import AllCategory, Category
 from resource.pets import AllPets, Pets
-from security import authenticate , identity
+# from security import authenticate , identity
 from resource.user import AllUser, User
 
-jwt = JWT(app,authenticate,identity)
+# jwt = JWT(app,authenticate,identity)
 
 api.add_resource(User, "/user")
 api.add_resource(AllUser, "/allusers")
