@@ -28,7 +28,7 @@ class PetModel(db.Model):
         return cls.query.filter_by(id=pet_id).first()
     
     def json(self):
-        return {'id': self.id, 'petname':self.pet_name, 'price':self.price, 'info':self.info, 'img_url': self.img_url, 'seller_id':self.seller_id, 'category_id':self.category_id, 'category_name': self.categories.category_name }
+        return {'id': self.id, 'pet_name':self.pet_name, 'price':self.price, 'info':self.info, 'img_url': self.img_url, 'seller_id':self.seller_id, 'category_id':self.category_id, 'category_name': self.categories.category_name }
     
     def insert(self):
         db.session.add(self)
